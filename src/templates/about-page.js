@@ -4,6 +4,8 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
 import Img from 'gatsby-image'
+import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
+
 
 export const AboutPageTemplate = ({
   image,
@@ -15,7 +17,7 @@ export const AboutPageTemplate = ({
   content,
   contentComponent
 }) => {
-  console.log('content :>> ', content);
+  console.log('image2 :>> ', image);
   const AboutContent = contentComponent || Content
   return (
     <section className="hero is-fullheight-with-navbar"
@@ -29,27 +31,36 @@ export const AboutPageTemplate = ({
 
         <div className="columns" style={{
           height: '100%',
-          width: '100%'
+          width: '100%',
+
         }}>
-          <Img style={{ width: '100%', height: '100%' }} fluid={!!image.childImageSharp ? image.childImageSharp.fluid : image} alt="" />
-          {/* <div className="column is-half"
+          {/* <Img style={{ width: '100%', height: '100%' }} fluid={!!image.childImageSharp ? image.childImageSharp.fluid : image.url} alt="" /> */}
+          {/* <PreviewCompatibleImage imageInfo={image} /> */}
+
+          <div className="column is-half"
             style={{
+              // display: 'flex',
               height: '100%',
-              // width: '100%',
-              backgroundImage: `url(${
-                !!image ? image.childImageSharp.fluid.src : image
-                })`,
-              backgroundPosition: `top center`,
-              backgroundAttachment: `fixed`,
+              // // width: '100%',
+              // backgroundImage: `url(${
+              //   !!image.childImageSharp ? image.childImageSharp.fluid.src : image
+              //   })`,
+              // backgroundPosition: `top center`,
+              // // backgroundAttachment: `fixed`,
             }}>
-            First column */}
-        </div>
-        <div className="column is-half" style={{ justifyContent: 'center' }}>
-          <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
-            {title}
-          </h2>
-          <h3 className="has-text-weight-semibold is-size-2">{heading}</h3>
-          <AboutContent content={content} />
+            {/* {!!image.childImageSharp ? <Img style={{ width: '100%', height: '100%' }} fluid={image.childImageSharp.fluid} alt="" /> :
+              <img style={{ width: '100%', height: '100%' }} src={image} alt="" />} */}
+
+            <PreviewCompatibleImage style={{ width: '100%', height: '100%' }} imageInfo={image} />
+
+          </div>
+          <div className="column is-half" style={{ justifyContent: 'center' }}>
+            <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
+              {title}
+            </h2>
+            <h3 className="has-text-weight-semibold is-size-2">{heading}</h3>
+            <AboutContent content={content} />
+          </div>
         </div>
       </div>
 
