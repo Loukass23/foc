@@ -12,8 +12,11 @@ export const AboutPageTemplate = ({
   subheading,
   mainpitch,
   description,
-  intro
+  content,
+  contentComponent
 }) => {
+  console.log('content :>> ', content);
+  const AboutContent = contentComponent || Content
   return (
     <section className="hero is-fullheight-with-navbar"
     >
@@ -41,12 +44,12 @@ export const AboutPageTemplate = ({
             }}>
             First column */}
         </div>
-        <div className="column is-half">
+        <div className="column is-half" style={{ justifyContent: 'center' }}>
           <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
             {title}
           </h2>
           <h3 className="has-text-weight-semibold is-size-2">{heading}</h3>
-          <p>{description}</p>
+          <AboutContent content={content} />
         </div>
       </div>
 
@@ -94,10 +97,13 @@ AboutPageTemplate.propTypes = {
   intro: PropTypes.shape({
     blurbs: PropTypes.array,
   }),
+  content: PropTypes.node.isRequired,
+  contentComponent: PropTypes.func,
 }
 
 const AboutPage = ({ data }) => {
-  const { frontmatter } = data.markdownRemark
+  console.log('data', data)
+  const { frontmatter, html } = data.markdownRemark
 
   return (
     <Layout>
@@ -108,7 +114,8 @@ const AboutPage = ({ data }) => {
         subheading={frontmatter.subheading}
         mainpitch={frontmatter.mainpitch}
         description={frontmatter.description}
-        intro={frontmatter.intro}
+        content={html}
+        contentComponent={HTMLContent}
       />
     </Layout>
   )
@@ -127,6 +134,7 @@ export default AboutPage
 export const aboutPageQuery = graphql`
   query AboutPage($id: String!) {
     markdownRemark(id: { eq: $id }) {
+      html
       frontmatter {
         title
         image {
