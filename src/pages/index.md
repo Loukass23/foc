@@ -1,7 +1,7 @@
 ---
 templateKey: index-page
 title: FLIGHTOCLOCK
-image: /img/20170212_124649.jpg
+image: /img/foc-homepage.png
 heading: Great coffee with a conscience
 subheading: Support sustainable farming while enjoying a cup
 mainpitch:
