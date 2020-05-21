@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
+import Img from 'gatsby-image'
 
 export const AboutPageTemplate = ({
   image,
@@ -19,33 +20,36 @@ export const AboutPageTemplate = ({
       <div className="hero-body"
         style={{
           display: 'flex',
-          justifyContent: 'center'
+          justifyContent: 'center',
+          padding: 0
         }}>
 
         <div className="columns" style={{
           height: '100%',
           width: '100%'
         }}>
-          <div className="column is-half"
+          <Img style={{ width: '100%', height: '100%' }} fluid={!!image.childImageSharp ? image.childImageSharp.fluid : image} alt="" />
+          {/* <div className="column is-half"
             style={{
               height: '100%',
-              width: '100%',
+              // width: '100%',
               backgroundImage: `url(${
                 !!image ? image.childImageSharp.fluid.src : image
                 })`,
               backgroundPosition: `top center`,
               backgroundAttachment: `fixed`,
             }}>
-            First column
-          </div>
-          <div className="column is-half">
-            <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
-              {title}
-            </h2>
-          </div>
+            First column */}
         </div>
-
+        <div className="column is-half">
+          <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
+            {title}
+          </h2>
+          <h3 className="has-text-weight-semibold is-size-2">{heading}</h3>
+          <p>{description}</p>
+        </div>
       </div>
+
     </section>
     /* <section className="section section--gradient"
       style={{ position: 'absolute', width: '100vw', height: '100vh' }}>
@@ -134,26 +138,8 @@ export const aboutPageQuery = graphql`
         }
         heading
         subheading
-        mainpitch {
-          title
-          description
-        }
         description
-        intro {
-          blurbs {
-            image {
-              childImageSharp {
-                fluid(maxWidth: 240, quality: 64) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-            text
-          }
-          heading
-          description
         }
       }
-    }
   }
 `
