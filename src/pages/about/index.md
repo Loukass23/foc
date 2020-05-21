@@ -9,11 +9,15 @@ description: Kaldi is the ultimate spot for coffee lovers who want to learn
   production, roasting and brewing seriously and we’re glad to pass that
   knowledge to anyone.
 ---
-**qdqsdqsdqd**
+I'm Carina. A twenty-something year old curious traveler, mental health advocate, and all round creative, currently based in Berlin (ask me again tomorrow, I could be somewhere else).
 
-* **azdazd**
+As a travel enthusiast, I collect memories and experiences. I constantly try to push myself out of my comfort zone, with a strong belief that **you don't grow when you're comfortable**.
 
-  ![dqs](/img/20170212_124649.jpg "qdqsd")
-* **azdazd**
+\
+In this space, I want to express the beauty and freedom of travel, nature and the 'third culture kid' lifestyle I have - hoping to share the connection we all have with each other.
 
-  **azd**
+
+
+With a camera in one hand, the other reaches out to invite you on this exciting journey with me!
+
+![dqs](/img/20170212_124649.jpg "qdqsd")
