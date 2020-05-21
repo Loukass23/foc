@@ -11,9 +11,9 @@ description: Kaldi is the ultimate spot for coffee lovers who want to learn
 ---
 **qdqsdqsdqd**
 
-
-
 * **azdazd**
+
+  ![dqs](/img/20170212_124649.jpg "qdqsd")
 * **azdazd**
 
   **azd**
