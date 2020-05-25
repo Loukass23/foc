@@ -1,93 +1,273 @@
-import React from 'react'
+import React, { useState } from 'react';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Fab from '@material-ui/core/Fab';
+import Toolbar from '@material-ui/core/Toolbar';
+import IconButton from '@material-ui/core/IconButton';
+import Button from '@material-ui/core/Button';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import Typography from '@material-ui/core/Typography';
+import ScrollTop from './ScrollTop';
+import MoreIcon from '@material-ui/icons/MoreVert';
 import { Link } from 'gatsby'
-import logo from '../img/logo.svg'
+import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
+import { pages } from '../../static/pages.json'
+import Logo from "../../public/assets/logo.svg";
 
-const Navbar = class extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      active: false,
-      navBarActiveClass: '',
+
+
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: '100vw'
+    // flexGrow: 1,
+  },
+  menuButton: {
+    marginRight: theme.spacing(2),
+  },
+  logo: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  title: {
+    // color: theme.palette.common.black,
+    display: 'none',
+    [theme.breakpoints.up('sm')]: {
+      display: 'block',
+      flexGrow: 1,
+    },
+  },
+  titleShort: {
+    flexGrow: 1,
+    color: theme.palette.common.black,
+    display: 'block',
+    [theme.breakpoints.up('sm')]: {
+      display: 'none',
+      flexGrow: 0,
+    },
+  },
+  link: {
+    flexGrow: 1,
+    display: 'flex',
+    textDecoration: 'none',
+    [theme.breakpoints.up('sm')]: {
+    },
+  },
+  button: {
+    color: theme.palette.common.white,
+    display: 'none',
+    [theme.breakpoints.up('md')]: {
+      display: 'flex',
+    },
+  },
+  subMenu: {
+    color: theme.palette.common.black,
+    display: 'none',
+    [theme.breakpoints.up('md')]: {
+      display: 'flex',
+    },
+  },
+
+  appBar: {
+    backgroundColor: 'transparent',
+    display: 'flex',
+    position: "fixed",
+  },
+  toolbar: {
+    // justifyContent: 'center'
+  },
+  sectionDesktop: {
+    display: 'none',
+    [theme.breakpoints.up('md')]: {
+      display: 'flex',
+      justifySelf: 'flex-start',
+    },
+  },
+  underline: {
+    paddingTop: 2,
+    borderBottom: "2px solid",
+    borderBottomColor: theme.palette.secondary.main
+  },
+  flexEnd: {
+    justifySelf: 'flex-end'
+  },
+  sectionMobile: {
+    display: 'flex',
+    [theme.breakpoints.up('md')]: {
+      display: 'none',
+    },
+  },
+  applyButton: {
+    height: "80%",
+    alignSelf: 'center',
+    marginRight: theme.spacing(2),
+    marginLeft: theme.spacing(2),
+    backgroundColor: theme.palette.secondary.main,
+    color: theme.palette.common.white,
+    '&:hover': {
+      backgroundColor: theme.palette.common.white,
+      color: theme.palette.secondary.main,
     }
-  }
+  },
+}));
 
-  toggleHamburger = () => {
-    // toggle the active boolean in the state
-    this.setState(
-      {
-        active: !this.state.active,
-      },
-      // after state has been updated,
-      () => {
-        // set the class in state for the navbar accordingly
-        this.state.active
-          ? this.setState({
-            navBarActiveClass: 'is-active',
-          })
-          : this.setState({
-            navBarActiveClass: '',
-          })
-      }
-    )
-  }
 
-  render() {
-    return (
+const NavBar = (props) => {
+  const { url } = props;
+  console.log('url :>> ', url);
+  const classes = useStyles();
+  const theme = useTheme()
+  // const [anchorEl, setAnchorEl] = useState(null);
+  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
+  // const [isMenuOpen, setIsMenuOpen] = useState({})
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  // const isMenuOpen = false;
+  // useEffect(() => {
+  //   pages.forEach(page => {
+  //     if (page.childen) {
+  //       setIsMenuOpen({ ...isMenuOpen, [page.to]: false })
+  //     }
+  //   })
+  // }, [])
 
-      <nav
-        className="navbar is-transparent"
-        role="navigation"
-        aria-label="main-navigation"
+  // const handleMenuOpen = (event) => {
+  //   setIsMenuOpen({ ...isMenuOpen, [event.currentTarget.id]: true })
+  //   setAnchorEl(event.currentTarget);
+  // };
 
-      >
-        <div className="container">
-          <div className="navbar-brand">
-            <div
-              className={`navbar-burger burger ${this.state.navBarActiveClass}`}
-              data-target="navMenu"
-              onClick={() => this.toggleHamburger()}
+  const handleMobileMenuClose = () => {
+    setIsMobileMenuOpen(false)
+    setMobileMoreAnchorEl(null);
+  };
+
+  // const handleMenuClose = () => {
+  //   setAnchorEl(null);
+  //   const toFalse = isMenuOpen
+  //   Object.keys(toFalse).forEach(key => toFalse[key] = false)
+  //   setIsMenuOpen(toFalse)
+  // };
+
+  const handleMobileMenuOpen = (event) => {
+    setIsMobileMenuOpen(true)
+
+    setMobileMoreAnchorEl(event.currentTarget);
+  };
+
+
+
+  const mobileMenuId = 'account-menu-mobile';
+  const renderMobileMenu = (
+    <Menu
+      anchorEl={mobileMoreAnchorEl}
+      anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+      id={mobileMenuId}
+      keepMounted
+      transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+      open={isMobileMenuOpen}
+      onClose={handleMobileMenuClose}
+    >
+
+      {pages.map(page =>
+
+        <MenuItem key={page.to} onClick={handleMobileMenuClose} component={Link} to={page.to} >
+          {page.name}
+        </MenuItem>
+      )}
+
+
+    </Menu>
+  );
+  // const homeLink = langKey === 'en' ? '/' : `/${langKey}/`
+
+  return (
+    <div className={classes.root}>
+      <AppBar elevation={0} className={classes.appBar} position="sticky">
+        <Toolbar className={classes.toolbar}>
+
+          {/* <Logo height={40} fill={theme.palette.common.white} /> */}
+
+          <Typography className={classes.title} variant="h4">
+            <Link to={'/'} style={{ textDecoration: 'none', color: theme.palette.common.white }}>
+              FLIGHTOCLOCK
+              </Link>
+          </Typography>
+
+
+          <div className={classes.sectionDesktop}>
+
+            {pages.map(page =>
+              <React.Fragment key={page.name}>
+                <Button id={page.to} component={Link} to={page.to} className={classes.button} >
+                  {page.to == url ? <span className={classes.underline}>{page.name}</span> : page.name}
+                </Button>
+
+              </React.Fragment>
+            )}
+            {/* <IconButton
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={handleProfileMenuOpen}
+              color="inherit"
             >
-              <span />
-              <span />
-              <span />
-            </div>
-            {/* 
-            {/* <Link to="/" className="navbar-item" title="Logo">
-              <img src={logo} alt="Flightoclock" style={{ width: '88px' }} />
-            </Link> */}
+              test            </IconButton>
+            <Menu
+              id="menu-appbar"
+              anchorEl={anchorEl}
+              anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              open={isMenuOpen}
+              onClose={handleMenuClose}
+            >
+
+              <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+              <MenuItem onClick={handleMenuClose}>Student Space</MenuItem>
+            </Menu> */
+            /* <Button component={Link} to={`/${langKey}/application`} variant="outlined" className={classes.applyButton} color="secondary">
+              <FormattedMessage id="apply" />
+            </Button>
+            <SelectLanguage langs={langs} color={theme.palette.common.white} /> */}
+
 
 
           </div>
-          <div
-            id="navMenu"
-            className={`navbar-menu ${this.state.navBarActiveClass}`}
-            style={{ display: 'flex', justifyContent: 'center' }}
-          >
-            {/* <div className="navbar-end has-text-centered"> */}
-            <Link className="navbar-item" to="/about">
-              About
-              </Link>
-            <Link className="navbar-item" to="/products">
-              Products
-              </Link>
-            <Link className="navbar-item" to="/blog">
-              Blog
-              </Link>
-            <Link className="navbar-item" to="/contact">
-              Contact
-              </Link>
-            <Link className="navbar-item" to="/contact/examples">
-              Form Examples
-              </Link>
+
+          <div className={classes.sectionMobile}>
+            {/* <Button component={Link} to={`/${langKey}/application`} variant="outlined" className={classes.applyButton} color="secondary">
+              Apply
+            </Button> */}
+            <IconButton
+              aria-label="show more"
+              aria-controls={mobileMenuId}
+              aria-haspopup="true"
+              onClick={handleMobileMenuOpen}
+              style={{ color: theme.palette.common.white }}
+
+            >
+              <MoreIcon />
+            </IconButton>
           </div>
-          {/* <div className="navbar-end has-text-centered">
-           
-            </div> */}
-          {/* </div> */}
-        </div>
-      </nav>
-    )
-  }
+
+
+        </Toolbar>
+        {/* {renderMenu} */}
+        {renderMobileMenu}
+      </AppBar>
+      <ScrollTop {...props}>
+        <Fab color="secondary" size="small" aria-label="scroll back to top">
+          <KeyboardArrowUpIcon />
+        </Fab>
+      </ScrollTop>
+    </div>
+  );
 }
-
-export default Navbar
+export default NavBar

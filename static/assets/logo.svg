@@ -1,0 +1,8 @@
+ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 407 131">
+            <g id="Layer_3" data-name="Layer 3">
+                <polygon id="C" points="123.17 10.73 22.59 47.58 22.59 75.46 123.17 110.96 123.17 91.46 34.67 62.08 34.79 60.84 123.17 30.21 123.17 10.73" />
+                <polygon id="A" points="142.17 110.96 177.79 10.98 206.17 10.98 242.17 110.96 222.67 110.96 193.29 22.96 191.17 22.83 161.42 110.96 142.17 110.96" />
+                <text transform="translate(255.67 77.93)" fontSize="42.62" fontFamily="MyriadPro-Regular, Myriad Pro">BER</text>
+                <text transform="translate(255.17 110.96) scale(1.04 1)" fontSize="42.62" fontFamily="MyriadPro-Regular, Myriad Pro" letterSpacing="0.09em">LIN</text>
+            </g>
+        </svg>

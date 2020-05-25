@@ -6,6 +6,7 @@ import Layout from '../components/Layout'
 import Helmet from '../components/Helmet'
 import Features from '../components/Features'
 import BlogRoll from '../components/BlogRoll'
+import { Typography } from '@material-ui/core'
 
 export const IndexPageTemplate = ({
   image,
@@ -15,59 +16,58 @@ export const IndexPageTemplate = ({
 }) => (
     <div>
       <Helmet />
-      <Link to='/about'>
+      <Link to='/home'>
+
         <div
-          // className="full-width-image margin-top-0"
           style={{
             backgroundImage: `url(${
               !!image.childImageSharp ? image.childImageSharp.fluid.src : image
               })`,
-            backgroundPosition: `top center`,
-            backgroundAttachment: `fixed`,
+            backgroundPosition: `center`,
+            objectFit: 'cover',
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: '100% 100%',
+            position: 'absolute',
+            display: 'flex',
+            height: '100vh',
+            width: '100vw',
+
+            lineHeight: '1',
+            justifyContent: 'center',
+            alignItems: 'center',
+            flexDirection: 'column',
+
           }}
         >
-          <div
+          <Typography variant="h1"
+            // className="is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
             style={{
-              display: 'flex',
-              height: '100vh',
-              lineHeight: '1',
-              justifyContent: 'center',
-              alignItems: 'center',
-              flexDirection: 'column',
-
+              letterSpacing: 7,
+              fontWeight: '100',
+              fontSize: 100,
+              // boxShadow:
+              //   'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
+              // backgroundColor: 'rgb(255, 68, 0)',
+              color: 'black',
+              // lineHeight: '1',
+              padding: '0.25em',
             }}
           >
-            <h1
-              // className="is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
-              style={{
-                letterSpacing: 7,
-                fontWeight: '100',
-                fontSize: 100,
-                // boxShadow:
-                //   'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
-                // backgroundColor: 'rgb(255, 68, 0)',
-                color: 'black',
-                // lineHeight: '1',
-                padding: '0.25em',
-              }}
-            >
-              {title}
-            </h1>
-
-            <h3
-              className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
-              style={{
-                // boxShadow:
-                //   'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
-                // backgroundColor: 'rgb(255, 68, 0)',
-                color: 'black',
-                lineHeight: '1',
-                padding: '0.25em',
-              }}
-            >
-              {heading}
-            </h3>
-          </div>
+            {title}
+          </Typography>
+          <h3
+            className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
+            style={{
+              // boxShadow:
+              //   'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
+              // backgroundColor: 'rgb(255, 68, 0)',
+              color: 'black',
+              lineHeight: '1',
+              padding: '0.25em',
+            }}
+          >
+            {heading}
+          </h3>
         </div>
       </Link>
       {/* </div>
