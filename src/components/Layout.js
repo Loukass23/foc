@@ -3,12 +3,16 @@ import { Helmet } from 'react-helmet'
 import Footer from '../components/Footer'
 import Navbar from './Navbar'
 // import './all.sass'
+import { makeStyles } from "@material-ui/core/styles";
 import useSiteMetadata from './SiteMetadata'
 import { withPrefix } from 'gatsby'
-
+const useStyles = makeStyles((theme) => ({
+  toolbar: theme.mixins.toolbar,
+  mainContainer: { minHeight: '50vh' }
+}));
 const TemplateWrapper = ({ children, location }) => {
   const { title, description } = useSiteMetadata()
-  const url = location.pathname;
+  const url = location.pathname
   console.log('url :>> ', url);
   return (
     <div>
@@ -55,6 +59,7 @@ const TemplateWrapper = ({ children, location }) => {
         />
       </Helmet>
       <Navbar url={url} />
+      {/* {url !== '/home' && <div className={classes.toolbar} />} */}
       <div>{children}</div>
       {/* <Footer /> */}
     </div>
