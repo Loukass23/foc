@@ -4,7 +4,6 @@ import Layout from '../../components/Layout'
 import BlogRoll from '../../components/BlogRoll'
 
 const BlogIndexPage = ({ location }) => {
-  console.log('location :>> ', location);
   return (
     <Layout location={location}>
       <div

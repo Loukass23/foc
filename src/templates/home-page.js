@@ -27,7 +27,7 @@ export const HomePageTemplate = ({
   return (
     <React.Fragment>
       <HeroLanding image={image} />
-      <Container>
+      <Container style={{ marginTop: theme.spacing(4) }}>
         <LinkCards />
       </Container>
 

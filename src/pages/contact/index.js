@@ -35,7 +35,7 @@ export default class Index extends React.Component {
 
   render() {
     return (
-      <Layout>
+      <Layout location={this.props.location}>
         <section className="section">
           <div className="container">
             <div className="content">

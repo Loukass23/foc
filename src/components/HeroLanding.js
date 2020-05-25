@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
         // background: `linear-gradient(180deg ,${theme.palette.primary.main} 50%, ${fade(theme.palette.primary.main, 0.7)}100%)`,
         backgroundSize: "cover",
         overflow: 'hidden',
-        minHeight: '50vh',
+        minHeight: '60vh',
         display: 'flex',
         alignItems: 'center'
     },

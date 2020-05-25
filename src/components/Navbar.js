@@ -20,8 +20,8 @@ import Logo from "../../public/assets/logo.svg";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: '100vw'
-    // flexGrow: 1,
+    width: '100vw',
+
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -74,6 +74,8 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: 'transparent',
     display: 'flex',
     position: "fixed",
+    borderBottom: "1px solid",
+    borderBottomColor: theme.palette.common.white,
   },
   toolbar: {
     // justifyContent: 'center'
@@ -86,8 +88,8 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   underline: {
-    paddingTop: 2,
-    borderBottom: "2px solid",
+    paddingTop: 4,
+    borderBottom: "4px solid",
     borderBottomColor: theme.palette.secondary.main
   },
   flexEnd: {
