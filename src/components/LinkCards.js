@@ -11,7 +11,7 @@ import Container from '@material-ui/core/Container';
 import MultilineChartIcon from '@material-ui/icons/MultilineChart';
 import useSiteMetadata from "./SiteMetadata";
 import { Link } from 'gatsby';
-import SVGLines from "../../public/assets/lines.svg";
+import SVGLines from "../../public/assets/lines2.svg";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -75,6 +75,12 @@ const useStyles = makeStyles((theme) => ({
         height: '100%',
         // top: 40
     },
+    svg2: {
+        position: 'absolute',
+        width: '100%',
+        height: '100%',
+        top: 0
+    },
     cardMedia: {
         objectFit: 'cover'
     }
@@ -99,7 +105,7 @@ const links = [
         title: 'Contact',
         subheader: 'Want to work toguether? Want to just say Hi? Email me here',
         to: 'contact',
-        viewBox: "20 0 100 100"
+        viewBox: "20 10 100 100"
     }
 ];
 
@@ -110,7 +116,14 @@ const LinkCards = () => {
     // const { languages } = useSiteMetadata();
 
     return (
-        <Grid container spacing={5} >
+        <Grid container spacing={5} style={{ position: 'relative' }}>
+            <div className={classes.svg2}>
+                <SVGLines
+                    viewBox="0 30 100 100"
+                    fill="black"
+                // fill="#c9c9c9" 
+                />
+            </div>
             {links.map((link) => (
                 <Grid item key={link.title} xs={12} sm={4} >
                     <Link className={classes.link} to={`/${link.to}`}>
