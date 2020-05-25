@@ -85,10 +85,12 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up('md')]: {
       display: 'flex',
       justifySelf: 'flex-start',
+
     },
   },
   underline: {
-    paddingTop: 4,
+    height: 60,
+    marginBottom: -6,
     borderBottom: "4px solid",
     borderBottomColor: theme.palette.secondary.main
   },
@@ -118,7 +120,6 @@ const useStyles = makeStyles((theme) => ({
 
 const NavBar = (props) => {
   const { url } = props;
-  console.log('url :>> ', url);
   const classes = useStyles();
   const theme = useTheme()
   // const [anchorEl, setAnchorEl] = useState(null);
@@ -190,7 +191,7 @@ const NavBar = (props) => {
 
           {/* <Logo height={40} fill={theme.palette.common.white} /> */}
 
-          <Typography className={classes.title} variant="h4">
+          <Typography className={classes.title} variant="h5">
             <Link to={'/'} style={{ textDecoration: 'none', color: theme.palette.common.white }}>
               FLIGHTOCLOCK
               </Link>
@@ -201,8 +202,8 @@ const NavBar = (props) => {
 
             {pages.map(page =>
               <React.Fragment key={page.name}>
-                <Button id={page.to} component={Link} to={page.to} className={classes.button} >
-                  {page.to == url ? <span className={classes.underline}>{page.name}</span> : page.name}
+                <Button id={page.to} component={Link} to={page.to} className={classes.button} classes={{ label: page.to == url ? classes.underline : '' }} >
+                  {page.name}
                 </Button>
 
               </React.Fragment>

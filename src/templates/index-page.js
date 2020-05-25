@@ -26,7 +26,7 @@ export const IndexPageTemplate = ({
             backgroundPosition: `center`,
             objectFit: 'cover',
             backgroundRepeat: 'no-repeat',
-            backgroundSize: '100% 100%',
+            backgroundSize: 'auto 100%',
             position: 'absolute',
             display: 'flex',
             height: '100vh',
@@ -119,7 +119,7 @@ export const IndexPageTemplate = ({
           </div>
         </div>
       </section>*/}
-    </div >
+    </div>
   )
 
 IndexPageTemplate.propTypes = {

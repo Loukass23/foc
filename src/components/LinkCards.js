@@ -28,9 +28,11 @@ const useStyles = makeStyles((theme) => ({
     },
     card: {
         backgroundColor: "#343730",
+        // backgroundColor: "rgba(0, 0, 0, 0)",
+        boxShadow: `5px 10px ${theme.palette.secondary.main}`,
 
         position: 'relative',
-        height: 150,
+        height: 200,
         // display: 'flex',
         // flexDirection: 'column',
         // justifyContent: 'space-between',
@@ -70,6 +72,7 @@ const useStyles = makeStyles((theme) => ({
         textDecoration: 'none',
     },
     svg: {
+        opacity: .5,
         position: 'absolute',
         width: '100%',
         height: '100%',
@@ -77,9 +80,9 @@ const useStyles = makeStyles((theme) => ({
     },
     svg2: {
         position: 'absolute',
-        width: '100%',
+        width: '100vw',
         height: '100%',
-        top: 0
+        left: 0
     },
     cardMedia: {
         objectFit: 'cover'
@@ -93,19 +96,19 @@ const links = [
         title: 'Journey',
         subheader: 'check out all the places I have been to',
         to: 'journey',
-        viewBox: "0 10 100 100"
+        viewBox: "0 30 33 100"
     },
     {
         title: 'Features',
         subheader: 'My press and media and exposure',
         to: 'features',
-        viewBox: "80 10 100 100"
+        viewBox: "40 30 33 100"
     },
     {
         title: 'Contact',
         subheader: 'Want to work toguether? Want to just say Hi? Email me here',
         to: 'contact',
-        viewBox: "20 10 100 100"
+        viewBox: "70 30 33 100"
     }
 ];
 
@@ -116,35 +119,37 @@ const LinkCards = () => {
     // const { languages } = useSiteMetadata();
 
     return (
-        <Grid container spacing={5} style={{ position: 'relative' }}>
-            <div className={classes.svg2}>
+        <div style={{ position: 'relative' }}>
+            {/* <div className={classes.svg2}>
                 <SVGLines
-                    viewBox="0 30 100 100"
+                    viewBox="0 40 100 100"
                     fill="black"
                 // fill="#c9c9c9" 
                 />
-            </div>
-            {links.map((link) => (
-                <Grid item key={link.title} xs={12} sm={4} >
-                    <Link className={classes.link} to={`/${link.to}`}>
-                        <Card className={classes.card} style={{
-                        }} >
-                            <div className={classes.svg}>
-                                <SVGLines
-                                    viewBox={link.viewBox}
-                                    fill="white"
-                                // fill="#c9c9c9" 
+            </div> */}
+
+            <Grid container spacing={5} >
+
+                {links.map((link) => (
+                    <Grid item key={link.title} xs={12} sm={4} >
+                        <Link className={classes.link} to={`/${link.to}`}>
+                            <Card className={classes.card} style={{ position: 'relative' }} >
+                                <div className={classes.svg}>
+                                    <SVGLines
+                                        viewBox={link.viewBox}
+                                        fill="white"
+                                    // fill="#c9c9c9" 
+                                    />
+                                </div>
+                                <CardHeader
+                                    title={link.title.toUpperCase()}
+                                    subheader={link.subheader}
+                                    titleTypographyProps={{ fontSize: '2rem', fontWeight: 500, align: 'center', }}
+                                    subheaderTypographyProps={{ align: 'center', color: "inherit" }}
+                                    // action={course.title === 'Web Development' ? <CodeIcon /> : <MultilineChartIcon />}
+                                    className={classes.cardHeader}
                                 />
-                            </div>
-                            <CardHeader
-                                title={link.title.toUpperCase()}
-                                subheader={link.subheader}
-                                titleTypographyProps={{ fontSize: '2rem', fontWeight: 500, align: 'center', }}
-                                subheaderTypographyProps={{ align: 'center', color: "inherit" }}
-                                // action={course.title === 'Web Development' ? <CodeIcon /> : <MultilineChartIcon />}
-                                className={classes.cardHeader}
-                            />
-                            {/* <CardMedia
+                                {/* <CardMedia
                                     component="img"
                                     alt="Contemplative Reptile"
                                     height="140"
@@ -152,11 +157,11 @@ const LinkCards = () => {
                                     title="Contemplative Reptile"
                                     className={classes.cardMedia}
                                 /> */}
-                            {/* <CardMedia className={classes.cardMedia}>
+                                {/* <CardMedia className={classes.cardMedia}>
                                     <SVGLines />
                                 </CardMedia> */}
 
-                            {/* <CardContent>
+                                {/* <CardContent>
                                     <div className={classes.cardLength}>
                                         <Typography component="h2" variant="h3" color="textPrimary">
                                             {course.length}
@@ -174,17 +179,18 @@ const LinkCards = () => {
                                         ))}
                                     </ul>
                                 </CardContent> */}
-                            {/* <CardActions>
+                                {/* <CardActions>
                                 <Button fullWidth variant={course.buttonVariant} color="primary">
                                     {course.buttonText}
                                 </Button>
                             </CardActions> */}
-                        </Card>
-                    </Link>
-                </Grid>
-            ))
-            }
-        </Grid>
+                            </Card>
+                        </Link>
+                    </Grid>
+                ))
+                }
+            </Grid>
+        </div>
     );
 }
 export default LinkCards
