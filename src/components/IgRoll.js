@@ -4,6 +4,7 @@ import { Link, graphql, StaticQuery } from 'gatsby'
 import PreviewCompatibleImage from './PreviewCompatibleImage'
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/styles';
+import { instagram } from '../../static/pages.json'
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
@@ -19,7 +20,10 @@ import GridListTile from '@material-ui/core/GridListTile';
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    marginTop: theme.spacing(4)
+    marginTop: theme.spacing(4),
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center'
   },
 
 
@@ -49,13 +53,13 @@ const IgRoll = ({ data }) => {
     <Grid container className={classes.container} spacing={0}>
 
       {igNodes.map((tile) => (
-        <Grid item key={tile.id} xs={6} md={2}>
-          <PreviewCompatibleImage
-            imageInfo={{
-              image: tile.node.localFile,
-
-              style: { width: 'auto', height: 300 }
-            }} />
+        <Grid item key={tile.node.id} xs={12} sm={6} md={4} lg={2} >
+          <a href={`${instagram}/p/${tile.node.id}`} target="_blank">
+            <PreviewCompatibleImage
+              imageInfo={{
+                image: tile.node.localFile,
+                style: { width: 250, height: 250, marginLeft: 'auto', marginRight: 'auto' }
+              }} /></a>
         </Grid>
       ))}
     </Grid>)
@@ -74,7 +78,7 @@ export default () => (
   <StaticQuery
     query={graphql`
 query {
-  allInstaNode(limit: 6) {
+  allInstaNode(limit: 6 ,sort: {fields: timestamp, order: DESC}) {
     edges {
       node {
         id

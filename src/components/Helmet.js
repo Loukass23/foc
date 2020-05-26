@@ -14,11 +14,11 @@ const TemplateWrapper = ({ children }) => {
       <title>{title}</title>
       <meta name="description" content={description} />
 
-      <link
+      {/* <link
         rel="apple-touch-icon"
         sizes="180x180"
         href={`${withPrefix('/')}img/apple-touch-icon.png`}
-      />
+      /> */}
       <link
         rel="icon"
         type="image/png"
@@ -32,11 +32,11 @@ const TemplateWrapper = ({ children }) => {
         sizes="16x16"
       />
 
-      <link
+      {/* <link
         rel="mask-icon"
         href={`${withPrefix('/')}img/safari-pinned-tab.svg`}
         color="#ff4400"
-      />
+      /> */}
       <link
         rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Quicksand"

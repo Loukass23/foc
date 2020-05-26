@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
         boxShadow: `5px 10px ${theme.palette.secondary.main}`,
 
         position: 'relative',
-        height: 200,
+        height: 300,
         // display: 'flex',
         // flexDirection: 'column',
         // justifyContent: 'space-between',

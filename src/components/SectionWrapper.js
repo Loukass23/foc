@@ -45,6 +45,8 @@ const useStyles = makeStyles((theme) => ({
     sectionContainer: {
         display: 'flex',
         flexDirection: 'column',
+        position: "relative",
+
         // color: theme.palette.common.white,
         // '&:hover': {
         //     backgroundColor: theme.palette.common.white,
@@ -90,15 +92,15 @@ const SectionWrapper = ({ children, color, bgColor }) => {
     const classes = useStyles();
     return (
         <div className={classes.sectionContainer}>
-            <div className={classes.waveDiv}>
+            {/* <div className={classes.waveDiv}>
                 <HeroSVG fill={bgColor} transform="scale(-1,1)" />
-            </div>
+            </div> */}
             <div className={classes.section} style={{ color: color, backgroundColor: bgColor }}>
                 {children}
             </div>
-            <div className={classes.waveDiv}>
+            {/* <div className={classes.waveDiv}>
                 <HeroSVG fill={bgColor} transform="scale(1,-1)" />
-            </div>
+            </div> */}
         </div>)
 }
 

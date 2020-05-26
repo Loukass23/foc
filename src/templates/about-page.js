@@ -4,7 +4,8 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
-import { makeStyles } from '@material-ui/styles';
+import SectionWrapper from '../components/SectionWrapper'
+import { makeStyles, useTheme } from '@material-ui/styles';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import { Typography } from '@material-ui/core'
@@ -15,8 +16,10 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   container: {
-    marginTop: theme.spacing(10),
-    marginBottom: theme.spacing(6)
+    // marginTop: theme.spacing(10),
+    marginBottom: theme.spacing(2),
+    display: 'flex',
+    justifyContent: 'space-around'
   },
   img: {
     display: 'flex',
@@ -37,30 +40,39 @@ export const AboutPageTemplate = ({
   contentComponent,
 }) => {
   const classes = useStyles();
+  const theme = useTheme()
   const AboutContent = contentComponent || Content
   return (
-    <Container maxWidth="lg" className={classes.root}>
+    <div style={{ marginTop: theme.spacing(10) }}>
       <div className={classes.toolbar} />
-      <Grid container className={classes.container} spacing={2}>
-        <Grid item xs={12} md={6} className={classes.img}>
-          <PreviewCompatibleImage
-            imageInfo={{
-              image,
-              className: 'vintage',
-              style: { width: '500px' }
-            }} />
 
-        </Grid>
-        <Grid item xs={12} md={6} className={classes.content}>
-          <Typography variant="h3">
-            {heading}
-          </Typography>
-          <AboutContent content={content} className="about-content" />
+      <SectionWrapper bgColor={theme.palette.secondary.main}>
+
+        <Container maxWidth="xl" >
+          <div className={classes.toolbar} />
+          <Grid container className={classes.container} spacing={6}>
+            <Grid item xs={12} md={6} className={classes.img}>
+              <PreviewCompatibleImage
+                imageInfo={{
+                  image,
+                  className: 'vintage',
+                  style: { width: '700px' }
+                }} />
+
+            </Grid>
+            <Grid item xs={12} md={6} className={classes.content}>
+              <Typography variant="h3">
+                {heading}
+              </Typography>
+              <AboutContent content={content} className="about-content" />
 
 
-        </Grid>
-      </Grid>
-    </Container>
+            </Grid>
+          </Grid>
+        </Container>
+      </SectionWrapper>
+    </div>
+
   )
 }
 
