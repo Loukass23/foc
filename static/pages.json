@@ -17,6 +17,11 @@
             "blackColor": true
         },
         {
+            "name": "Follow",
+            "to": "/follow",
+            "blackColor": true
+        },
+        {
             "name": "Contact",
             "to": "/contact",
             "blackColor": true

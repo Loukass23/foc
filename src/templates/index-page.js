@@ -71,7 +71,7 @@ export const IndexPageTemplate = ({
             display: 'flex',
             height: '100vh',
             width: '100vw',
-
+            overflow: 'hidden',
             lineHeight: '1',
             justifyContent: 'center',
             alignItems: 'center',

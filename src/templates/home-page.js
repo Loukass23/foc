@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
 import Img from 'gatsby-image'
-import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
+import IgRoll from '../components/IgRoll'
 import HeroLanding from '../components/HeroLanding'
 import LinkCards from '../components/LinkCards'
 import SectionWrapper from '../components/SectionWrapper'
@@ -27,8 +27,9 @@ export const HomePageTemplate = ({
   return (
     <React.Fragment>
       <HeroLanding image={image} />
-      <Container style={{ marginTop: theme.spacing(4) }}>
+      <Container maxWidth="xl" style={{ marginTop: theme.spacing(4) }}>
         <LinkCards />
+        <IgRoll />
       </Container>
 
     </React.Fragment>

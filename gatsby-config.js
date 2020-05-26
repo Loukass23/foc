@@ -67,8 +67,26 @@ module.exports = {
         ],
       },
     },
-
-
+    {
+      resolve: `gatsby-source-instagram`,
+      options: {
+        username: `flightoclock`,
+        // access_token: "IGQVJYTDFUYU92U1l2Ukc2dEhrRl84TGZADUkdpMHc2bUdsTFJ5b0luckhDOUV5RDNzTGpiaGFHM3I5bU03YVBZAU3hHS2JmQmJGTDdKeEZABcVloNGRDZAUJPYmtBZAXQzbmhhS3NUUDdhRFZAWc2Y4OS1rSgZDZD",
+        // instagram_id: "245090180253026",
+        // paginate: 100,
+        // maxPosts: 1000,
+      },
+    },
+    // {
+    //   resolve: `gatsby-source-instagram`,
+    //   // options: {
+    //   //   type: `user-profile`,
+    //   //   username: `flightoclock`,
+    //   // },
+    //   options: {
+    //     username: `flightoclock`,
+    //   },
+    // },
     'gatsby-theme-material-ui',
     // must be after other CSS plugins
     // {
