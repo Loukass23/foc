@@ -33,11 +33,11 @@ const useStyles = makeStyles((theme) => ({
   },
   brand: {
     flexGrow: 1,
-    display: 'none',
-    [theme.breakpoints.up('sm')]: {
-      display: 'block',
+    // display: 'none',
+    // [theme.breakpoints.up('sm')]: {
+    //   display: 'block',
 
-    },
+    // },
   },
   titleShort: {
     flexGrow: 1,
@@ -261,7 +261,7 @@ const NavBar = (props) => {
               aria-controls={mobileMenuId}
               aria-haspopup="true"
               onClick={handleMobileMenuOpen}
-              style={{ color: theme.palette.common.white }}
+              style={{ color }}
 
             >
               <MoreIcon />

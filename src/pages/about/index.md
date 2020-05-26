@@ -1,13 +1,8 @@
 ---
-heading: WELCOME TO MY WORLD!
-subheading: ready for a new adventure?
 path: /about
 templateKey: about-page
+heading: WELCOME TO MY WORLD!
 image: /img/carina.png
-description: Kaldi is the ultimate spot for coffee lovers who want to learn
-  about their java’s origin and support the farmers that grew it. We take coffee
-  production, roasting and brewing seriously and we’re glad to pass that
-  knowledge to anyone.
 ---
 I'm Carina. A twenty-something year old curious traveler, mental health advocate, and all round creative, currently based in Berlin (ask me again tomorrow, I could be somewhere else).
 
