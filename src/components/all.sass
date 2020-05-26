@@ -117,24 +117,37 @@ $menu-label-color: $white-ter
 
 // blog roll
 .blog-list-item.is-featured
-  background-color: #d6400033;
+  background-color: #d6400033
 .blog-list-item header
-  display: flex;
-  margin-bottom: 1em;
+  display: flex
+  margin-bottom: 1em
 .blog-list-item .featured-thumbnail
-  flex-basis: 35%;
-  margin: 0 1.5em 0 0;
+  flex-basis: 35%
+  margin: 0 1.5em 0 0
 
 //about
+.about-content
+  color: 'red'
+
 .vintage 
-  border: solid #fff;
-  border-width: 6px 6px 20px 6px;
-  box-shadow: 1px 1px 5px #333;
-  -webkit-box-shadow: 1px 1px 5px #333;
-  -moz-box-shadow: 1px 1px 5px #333;
+  border: solid #fff
+  border-width: 6px 6px 20px 6px
+  box-shadow: 1px 1px 5px #333
+  -webkit-box-shadow: 1px 1px 5px #333
+  -moz-box-shadow: 1px 1px 5px #333
+  transform: rotate(-3deg)
   //height: 200px;
   // width: 200px;
 
+.line1, .line2, .line3
+  stroke-dasharray: 1000
+  stroke-dashoffset: 1000
+  animation: dash 100s linear forwards
+
+@keyframes dash
+  to 
+    stroke-dashoffset: 0
+  
 
 @import "~bulma"
 

@@ -12,6 +12,7 @@ import MultilineChartIcon from '@material-ui/icons/MultilineChart';
 import useSiteMetadata from "./SiteMetadata";
 import { Link } from 'gatsby';
 import SVGLines from "../../public/assets/lines2.svg";
+// import SVGLines from "../../public/assets/compoundLines.svg";
 
 
 const useStyles = makeStyles((theme) => ({

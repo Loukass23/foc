@@ -7,6 +7,26 @@ import Img from 'gatsby-image'
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
 import SectionWrapper from '../components/SectionWrapper'
 import { makeStyles, useTheme } from '@material-ui/styles';
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
+import Container from '@material-ui/core/Container';
+
+const useStyles = makeStyles((theme) => ({
+  toolbar: theme.mixins.toolbar,
+  root: {
+    flexGrow: 1,
+  },
+  container: {
+    marginTop: theme.spacing(4),
+    marginBottom: theme.spacing(4)
+  },
+  paper: {
+    padding: theme.spacing(2),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+  },
+}));
+
 
 
 export const AboutPageTemplate = ({
@@ -19,57 +39,85 @@ export const AboutPageTemplate = ({
   content,
   contentComponent,
 }) => {
-  const theme = useTheme()
+  const classes = useStyles();
   const AboutContent = contentComponent || Content
   return (
-    <section className="hero is-fullheight-with-navbar"
-    >
-      <div className="hero-body"
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          padding: 0
-        }}>
 
-        <div className="columns" style={{
-          height: '100%',
-          width: '100%',
 
-        }}>
-          {/* <Img style={{ width: '100%', height: '100%' }} fluid={!!image.childImageSharp ? image.childImageSharp.fluid : image.url} alt="" /> */}
-          {/* <PreviewCompatibleImage imageInfo={image} /> */}
+    <Container maxWidth="xl" className={classes.root}>
+      <div className={classes.toolbar} />
+      <Grid container className={classes.container} spacing={2}>
 
-          <div className="column is-half"
-            style={{
-              // display: 'flex',
-              height: '100%',
-              // // width: '100%',
-              // backgroundImage: `url(${
-              //   !!image.childImageSharp ? image.childImageSharp.fluid.src : image
-              //   })`,
-              // backgroundPosition: `top center`,
-              // // backgroundAttachment: `fixed`,
-            }}>
-            {/* {!!image.childImageSharp ? <Img style={{ width: '100%', height: '100%' }} fluid={image.childImageSharp.fluid} alt="" /> :
-              <img style={{ width: '100%', height: '100%' }} src={image} alt="" />} */}
 
-            <PreviewCompatibleImage style={{ width: '100%', height: '100%' }} imageInfo={image} />
+        <Grid item xs={12} md={6}>
 
-          </div>
-          <div className="column is-half" style={{ justifyContent: 'center' }}>
-            <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
-              {title}
-            </h2>
-            <h3 className="has-text-weight-semibold is-size-2">{heading}</h3>
-            <SectionWrapper color={theme.palette.common.white} bgColor={theme.palette.primary.main}>
-              <AboutContent content={content} className="white" />
+          <PreviewCompatibleImage
+            imageInfo={{
+              image,
+              className: 'vintage',
+              style: { width: '500px' }
+            }} />
 
-            </SectionWrapper>
-          </div>
-        </div>
-      </div>
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
+            {title}
+          </h2>
+          <h3 className="has-text-weight-semibold is-size-2">{heading}</h3>
+          <AboutContent content={content} className="about-content" />
 
-    </section>
+
+        </Grid>
+      </Grid>
+    </Container>
+    // <section className="hero is-fullheight-with-navbar"
+    // >
+    //   <div className="hero-body"
+    //     style={{
+    //       display: 'flex',
+    //       justifyContent: 'center',
+    //       padding: 0
+    //     }}>
+
+    //     <div className="columns" style={{
+    //       height: '100%',
+    //       width: '100%',
+
+    //     }}>
+    //       {/* <Img style={{ width: '100%', height: '100%' }} fluid={!!image.childImageSharp ? image.childImageSharp.fluid : image.url} alt="" /> */}
+    //       {/* <PreviewCompatibleImage imageInfo={image} /> */}
+
+    //       <div className="column is-half"
+    //         style={{
+    //           // display: 'flex',
+    //           height: '100%',
+    //           // // width: '100%',
+    //           // backgroundImage: `url(${
+    //           //   !!image.childImageSharp ? image.childImageSharp.fluid.src : image
+    //           //   })`,
+    //           // backgroundPosition: `top center`,
+    //           // // backgroundAttachment: `fixed`,
+    //         }}>
+    //         {/* {!!image.childImageSharp ? <Img style={{ width: '100%', height: '100%' }} fluid={image.childImageSharp.fluid} alt="" /> :
+    //           <img style={{ width: '100%', height: '100%' }} src={image} alt="" />} */}
+
+    //         <PreviewCompatibleImage style={{ width: '100%', height: '100%' }} imageInfo={image} />
+
+    //       </div>
+    //       <div className="column is-half" style={{ justifyContent: 'center' }}>
+    //         <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
+    //           {title}
+    //         </h2>
+    //         <h3 className="has-text-weight-semibold is-size-2">{heading}</h3>
+    //         <SectionWrapper color={theme.palette.common.white} bgColor={theme.palette.primary.main}>
+    //           <AboutContent content={content} className="white" />
+
+    //         </SectionWrapper>
+    //       </div>
+    //     </div>
+    //   </div>
+
+    // </section>
     /* <section className="section section--gradient"
       style={{ position: 'absolute', width: '100vw', height: '100vh' }}>
       <div className="container"

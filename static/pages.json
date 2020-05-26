@@ -1,19 +1,24 @@
 {
+    "title": "Flightoclock",
     "pages": [{
             "name": "Home",
-            "to": "/home"
+            "to": "/home",
+            "blackColor": false
         },
         {
             "name": "About",
-            "to": "/about"
+            "to": "/about",
+            "blackColor": true
         },
         {
             "name": "Blog",
-            "to": "/blog"
+            "to": "/blog",
+            "blackColor": true
         },
         {
             "name": "Contact",
-            "to": "/contact"
+            "to": "/contact",
+            "blackColor": true
         }
     ],
     "links": [{

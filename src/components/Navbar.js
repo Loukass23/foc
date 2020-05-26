@@ -12,7 +12,7 @@ import ScrollTop from './ScrollTop';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import { Link } from 'gatsby'
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
-import { pages } from '../../static/pages.json'
+import { pages, title } from '../../static/pages.json'
 import Logo from "../../public/assets/logo.svg";
 
 
@@ -31,12 +31,12 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'center'
   },
-  title: {
-    // color: theme.palette.common.black,
+  brand: {
+    flexGrow: 1,
     display: 'none',
     [theme.breakpoints.up('sm')]: {
       display: 'block',
-      flexGrow: 1,
+
     },
   },
   titleShort: {
@@ -56,7 +56,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   button: {
-    color: theme.palette.common.white,
     display: 'none',
     [theme.breakpoints.up('md')]: {
       display: 'flex',
@@ -73,9 +72,9 @@ const useStyles = makeStyles((theme) => ({
   appBar: {
     backgroundColor: 'transparent',
     display: 'flex',
-    position: "fixed",
+    // position: "fixed",
     borderBottom: "1px solid",
-    borderBottomColor: theme.palette.common.white,
+
   },
   toolbar: {
     // justifyContent: 'center'
@@ -119,7 +118,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 const NavBar = (props) => {
-  const { url } = props;
+  const { url, color } = props;
   const classes = useStyles();
   const theme = useTheme()
   // const [anchorEl, setAnchorEl] = useState(null);
@@ -182,19 +181,22 @@ const NavBar = (props) => {
 
     </Menu>
   );
-  // const homeLink = langKey === 'en' ? '/' : `/${langKey}/`
 
   return (
     <div className={classes.root}>
-      <AppBar elevation={0} className={classes.appBar} position="sticky">
+      <AppBar elevation={0}
+        className={classes.appBar}
+        position="absolute"
+        style={{ borderBottomColor: color }}
+      >
         <Toolbar className={classes.toolbar}>
 
           {/* <Logo height={40} fill={theme.palette.common.white} /> */}
 
-          <Typography className={classes.title} variant="h5">
-            <Link to={'/'} style={{ textDecoration: 'none', color: theme.palette.common.white }}>
-              FLIGHTOCLOCK
-              </Link>
+          <Typography className={classes.brand} variant="h5">
+            <Link to={'/'} style={{ textDecoration: 'none', color }}>
+              {title.toUpperCase()}
+            </Link>
           </Typography>
 
 
@@ -202,7 +204,13 @@ const NavBar = (props) => {
 
             {pages.map(page =>
               <React.Fragment key={page.name}>
-                <Button id={page.to} component={Link} to={page.to} className={classes.button} classes={{ label: page.to == url ? classes.underline : '' }} >
+                <Button
+                  id={page.to}
+                  component={Link}
+                  to={page.to}
+                  className={classes.button}
+                  classes={{ label: page.to == url ? classes.underline : '' }}
+                  style={{ color }}>
                   {page.name}
                 </Button>
 

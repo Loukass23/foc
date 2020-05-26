@@ -1,6 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
-import Footer from '../components/Footer'
+import Footer from './Footer'
 import Navbar from './Navbar'
 // import './all.sass'
 import { makeStyles } from "@material-ui/core/styles";
@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
 const TemplateWrapper = ({ children, location }) => {
   const { title, description } = useSiteMetadata()
   const url = location.pathname
-  console.log('url :>> ', url);
+  const navColor = url === '/home' ? 'white' : 'black'
   return (
     <div>
       <Helmet>
@@ -58,10 +58,10 @@ const TemplateWrapper = ({ children, location }) => {
           content={`${withPrefix('/')}img/og-image.jpg`}
         />
       </Helmet>
-      <Navbar url={url} />
+      <Navbar url={url} color={navColor} />
       {/* {url !== '/home' && <div className={classes.toolbar} />} */}
       <div>{children}</div>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   )
 }
