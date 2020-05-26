@@ -1,5 +1,6 @@
 {
     "title": "Flightoclock",
+    "domain": "https://flightoclock.netlify.app",
     "pages": [{
             "name": "Home",
             "to": "/home",

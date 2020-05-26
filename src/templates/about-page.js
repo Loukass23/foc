@@ -39,7 +39,7 @@ export const AboutPageTemplate = ({
   const classes = useStyles();
   const AboutContent = contentComponent || Content
   return (
-    <Container maxWidth="xl" className={classes.root}>
+    <Container maxWidth="lg" className={classes.root}>
       <div className={classes.toolbar} />
       <Grid container className={classes.container} spacing={2}>
         <Grid item xs={12} md={6} className={classes.img}>
