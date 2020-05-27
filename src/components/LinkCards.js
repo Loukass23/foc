@@ -37,29 +37,31 @@ const useStyles = makeStyles((theme) => ({
         // display: 'flex',
         // flexDirection: 'column',
         // justifyContent: 'space-between',
-        '&:hover': {
-            boxShadow: `5px 10px ${fade(theme.palette.secondary.main, 0.5)}`,
-            // backgroundColor: fade(theme.palette.secondary.main, 0.5),
-            // animation: "grow 1s",
-            animationName: '$grow',
-            animationFillMode: 'forwards',
-            animationDuration: '1s'
+        // '&:hover': {
+        //     boxShadow: `5px 10px ${fade(theme.palette.secondary.main, 0.5)}`,
+        //     // backgroundColor: fade(theme.palette.secondary.main, 0.5),
+        //     // animation: "grow 1s",
+        //     animationName: '$grow',
+        //     animationFillMode: 'forwards',
+        //     animationDuration: '1s'
 
-        },
+        // },
     },
-    '@keyframes grow': {
-        from: {
-            transform: 'scale(1)',
-            // opacity: 0.1,
-        },
-        to: {
-            transform: 'scale(1.1)',
-            // opacity: 0.3,
-        },
-    },
+    // '@keyframes grow': {
+    //     from: {
+    //         transform: 'scale(1)',
+    //         // opacity: 0.1,
+    //     },
+    //     to: {
+    //         transform: 'scale(1.1)',
+    //         // opacity: 0.3,
+    //     },
+    // },
 
     cardHeader: {
         // backgroundColor: "none",
+        marginTop: theme.spacing(2),
+        padding: theme.spacing(4),
         color: theme.palette.common.white
 
     },
@@ -73,7 +75,7 @@ const useStyles = makeStyles((theme) => ({
         textDecoration: 'none',
     },
     svg: {
-        opacity: .5,
+        opacity: .2,
         position: 'absolute',
         width: '100%',
         height: '100%',
@@ -130,10 +132,10 @@ const LinkCards = () => {
             </div> */}
 
             <Grid container spacing={5} >
-
                 {links.map((link) => (
                     <Grid item key={link.title} xs={12} sm={4} >
                         <Link className={classes.link} to={`/${link.to}`}>
+
                             <Card className={classes.card} style={{ position: 'relative' }} >
                                 <div className={classes.svg}>
                                     <SVGLines
@@ -141,6 +143,11 @@ const LinkCards = () => {
                                         fill="white"
                                     // fill="#c9c9c9" 
                                     />
+                                </div>
+                                <div className="svg-wrapper">
+                                    <svg className="svg-button" xmlns="http://www.w3.org/2000/svg">
+                                        <rect className="shape" />
+                                    </svg>
                                 </div>
                                 <CardHeader
                                     title={link.title.toUpperCase()}
@@ -150,6 +157,7 @@ const LinkCards = () => {
                                     // action={course.title === 'Web Development' ? <CodeIcon /> : <MultilineChartIcon />}
                                     className={classes.cardHeader}
                                 />
+
                                 {/* <CardMedia
                                     component="img"
                                     alt="Contemplative Reptile"

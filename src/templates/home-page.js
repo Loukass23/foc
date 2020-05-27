@@ -6,6 +6,7 @@ import Content, { HTMLContent } from '../components/Content'
 import Img from 'gatsby-image'
 import IgRoll from '../components/IgRoll'
 import HeroLanding from '../components/HeroLanding'
+import HeaderSection from '../components/HeaderSection'
 import LinkCards from '../components/LinkCards'
 import SectionWrapper from '../components/SectionWrapper'
 import { makeStyles, useTheme } from '@material-ui/styles';
@@ -29,6 +30,8 @@ export const HomePageTemplate = ({
       <HeroLanding image={image} />
       <Container maxWidth="xl" style={{ marginTop: theme.spacing(4) }}>
         <LinkCards />
+        <HeaderSection header="Featured" />
+        <HeaderSection header="Instagram" />
         <IgRoll />
       </Container>
 

@@ -36,10 +36,11 @@ export default class Index extends React.Component {
   render() {
     return (
       <Layout location={this.props.location}>
+
         <section className="section">
           <div className="container">
             <div className="content">
-              <h1>Contact</h1>
+              <h2 className="major">Contact</h2>
               <form
                 name="contact"
                 method="post"
@@ -57,6 +58,10 @@ export default class Index extends React.Component {
                   </label>
                 </div>
                 <div className="field">
+                  <div className="field half first">
+                    <label htmlFor="name">Name</label>
+                    <input type="text" name="name" id="name" />
+                  </div>
                   <label className="label" htmlFor={'name'}>
                     Your name
                   </label>

@@ -1,12 +1,13 @@
 @import "~bulma/sass/utilities/initial-variables"
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
-// Config vars
-// Kaldi logo brand color: #FD461E
-$kaldi-red: #ff00d4
-$kaldi-red-invert: #fff
-$family-sans-serif: "Quicksand", sans-serif;
-$primary: $kaldi-red
-$primary-invert: $kaldi-red-invert
+// @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300')
+
+  
+  
+  // Config vars
+
+$family-sans-serif: "Quicksand", sans-serif
+$primary: #4D8286
+$secondary: #e4e8c1
 $body-color: #333
 $black: #2b2523
 
@@ -91,9 +92,9 @@ footer.footer
 $menu-item-color: $white-ter
 $menu-item-hover-color: $black !important
 $menu-item-hover-background-color: $black
-$menu-item-active-color: $kaldi-red-invert
-$menu-item-active-background-color:	$kaldi-red-invert
-$menu-list-border-left: 1px solid $kaldi-red-invert
+// $menu-item-active-color: $kaldi-red-invert
+// $menu-item-active-background-color:	$kaldi-red-invert
+// $menu-list-border-left: 1px solid $kaldi-red-invert
 $menu-label-color: $white-ter
 
 .white
@@ -116,6 +117,78 @@ $menu-label-color: $white-ter
   vertical-align: middle
   display: inline
 
+//header
+.line-header    
+  border-collapse: separate
+  border-spacing: 16px 0
+  // border-spacing: 1rem 0
+  color: #123
+  display: table
+  // font-family: Merriweather
+  // font-size: 5em
+  line-height: 0
+  margin: 1em 0 .5em
+  table-layout: auto
+  text-align: center
+  text-shadow: .0625em .0625em 0 $secondary
+  white-space: nowrap
+  width: 100%
+.line-header:before,.line-header:after 
+  border-top: 3px double #123
+  border-top-width: 6px
+  content: ''
+  display: table-cell
+  width: 50%
+
+//linkCard
+.svg-wrapper 
+  // height: 60px
+  padding: 20px
+  position: absolute
+  // display: flex
+  // justify-content: flex-start
+  // align-items: flex-start
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  // transform: translateY(-50%)
+  // width: 500px
+  // height: 500px
+
+
+.shape 
+  fill: transparent
+  width: 100%
+  height: 100%
+  stroke-dasharray: 100% 100%
+  stroke-dashoffset: 0
+  stroke-width: 5px
+  stroke: $secondary
+
+.svg-button
+  width: 100%
+  height: 100%
+
+
+@keyframes draw 
+  0% 
+    stroke-dasharray: 100% 100%
+    stroke-dashoffset: 0
+    stroke-width: 5px
+  
+  100% 
+    stroke-dasharray: 90% 90%
+    stroke-dashoffset: 150
+    stroke-width: 10px
+  
+
+
+.svg-wrapper:hover .shape 
+  -webkit-animation: 1s draw linear forwards
+  animation: 1s draw linear forwards
+
+
 // blog roll
 .blog-list-item.is-featured
   background-color: #d6400033
@@ -137,8 +210,8 @@ $menu-label-color: $white-ter
   -webkit-box-shadow: 1px 1px 5px #333
   -moz-box-shadow: 1px 1px 5px #333
   transform: rotate(-3deg)
-  //height: 200px;
-  // width: 200px;
+  //height: 200px
+  // width: 200px
 
 .line1, .line2, .line3
   stroke-dasharray: 1000
@@ -156,13 +229,15 @@ $menu-label-color: $white-ter
 // responsiveness
   +tablet-only
   .blog-list-item .featured-thumbnail
-    flex-basis: 50%;
+    flex-basis: 50%
 
     +mobile
   .blog-list-item header
     display: block
   .blog-list-item .featured-thumbnail
-    text-align: center;
-    max-width: 70%;
-    margin: 0 0 1em;
+    text-align: center
+    max-width: 70%
+    margin: 0 0 1em
+
+// Form 
 
