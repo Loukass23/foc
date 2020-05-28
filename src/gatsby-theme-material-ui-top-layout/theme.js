@@ -77,11 +77,18 @@ theme.typography.h2 = {
         fontSize: '3.75rem',
     },
 };
+// theme.typography.h3 = {
+//     fontSize: '1.5rem',
+//     fontWeight: 100,
+//     [theme.breakpoints.up('sm')]: {
+//         fontSize: '2.5rem',
+//     },
+// };
 theme.typography.h4 = {
     fontSize: '1.2rem',
     fontWeight: 100,
     [theme.breakpoints.up('sm')]: {
-        fontSize: '2.4rem',
+        fontSize: '2rem',
     },
 };
 theme.typography.h6 = {

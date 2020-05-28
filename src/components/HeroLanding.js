@@ -15,12 +15,15 @@ const useStyles = makeStyles((theme) => ({
         // background: `linear-gradient(180deg ,${theme.palette.primary.main} 50%, ${fade(theme.palette.primary.main, 0.7)}100%)`,
         backgroundSize: "cover",
         overflow: 'hidden',
-        minHeight: '60vh',
+        // minHeight: '100vh',
+        backgroundPosition: `center`,
+
+        backgroundRepeat: 'no-repeat',
         display: 'flex',
         alignItems: 'center'
     },
     container: {
-        height: '100%',
+        height: '100vh',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',

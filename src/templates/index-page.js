@@ -11,7 +11,7 @@ import { Typography } from '@material-ui/core'
 const useStyles = makeStyles((theme) => ({
   title: {
     letterSpacing: 7,
-    fontWeight: '100',
+    fontWeight: 50,
     fontSize: 30,
     // boxShadow:
     //   'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
 
     },
     [theme.breakpoints.up('md')]: {
-      fontSize: 100,
+      fontSize: 80,
 
     },
   },

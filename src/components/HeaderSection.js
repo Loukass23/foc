@@ -31,7 +31,7 @@ export default function HeaderSection({ header, subheader }) {
     return (
         <Container maxWidth="lg" className={classes.headerContent}>
 
-            <Typography component="h3" variant="h3" align="center" color="inherit" className="line-header">
+            <Typography component="h4" variant="h4" align="center" color="inherit" className="line-header">
                 {header}
             </Typography>
             {

@@ -137,13 +137,13 @@ const LinkCards = () => {
                         <Link className={classes.link} to={`/${link.to}`}>
 
                             <Card className={classes.card} style={{ position: 'relative' }} >
-                                <div className={classes.svg}>
+                                {/* <div className={classes.svg}>
                                     <SVGLines
                                         viewBox={link.viewBox}
                                         fill="white"
                                     // fill="#c9c9c9" 
                                     />
-                                </div>
+                                </div> */}
                                 <div className="svg-wrapper">
                                     <svg className="svg-button" xmlns="http://www.w3.org/2000/svg">
                                         <rect className="shape" />
