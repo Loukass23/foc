@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'center'
     },
     container: {
-        height: '100vh',
+        height: '33vh',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',

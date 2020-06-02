@@ -122,7 +122,7 @@ const Footer = ({ langKey }) => {
             <Grid item xs={6} sm={5} className={classes.columnR}>
               {pages.map((page) => (
                 <Link key={page.to} style={{ textDecoration: 'none' }} to={page.to}>
-                  <Typography variant="h6" className={classes.links} gutterBottom>
+                  <Typography variant="body1" className={classes.links} gutterBottom>
                     {page.name}
                   </Typography>
                 </Link>

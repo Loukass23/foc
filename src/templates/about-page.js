@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
+import FocInfo from '../components/FocInfo'
+
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
 import SectionWrapper from '../components/SectionWrapper'
 import { makeStyles, useTheme } from '@material-ui/styles';
@@ -46,31 +48,33 @@ export const AboutPageTemplate = ({
     <div style={{ marginTop: theme.spacing(10) }}>
       <div className={classes.toolbar} />
 
-      <SectionWrapper bgColor={theme.palette.secondary.main}>
+      {/* <SectionWrapper bgColor={theme.palette.secondary.main}> */}
 
-        <Container maxWidth="xl" >
-          <div className={classes.toolbar} />
-          <Grid container className={classes.container} spacing={6}>
-            <Grid item xs={12} md={6} className={classes.img}>
-              <PreviewCompatibleImage
-                imageInfo={{
-                  image,
-                  className: 'vintage',
-                  style: { width: '700px' }
-                }} />
+      <Container maxWidth="xl" >
+        <div className={classes.toolbar} />
+        <Grid container className={classes.container} spacing={6}>
+          <Grid item xs={12} md={6} className={classes.img}>
+            <PreviewCompatibleImage
+              imageInfo={{
+                image,
+                // className: 'vintage',
+                style: { width: '700px' }
+              }} />
 
-            </Grid>
-            <Grid item xs={12} md={6} className={classes.content}>
-              <Typography variant="h3">
-                {heading}
-              </Typography>
-              <AboutContent content={content} className="about-content" />
-
-
-            </Grid>
           </Grid>
-        </Container>
-      </SectionWrapper>
+          <Grid item xs={12} md={6} className={classes.content}>
+            <FocInfo heading={heading} />
+
+            {/* <Typography variant="h3">
+              {heading}
+            </Typography> */}
+            <AboutContent content={content} className="about-content" />
+
+
+          </Grid>
+        </Grid>
+      </Container>
+      {/* </SectionWrapper> */}
     </div>
 
   )

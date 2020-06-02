@@ -24,8 +24,8 @@ const defaultTheme = createMuiTheme({})
 const theme = createMuiTheme({
     ...defaultTheme,
     typography: {
-        fontFamily: 'Quicksand',
-        fontWeightRegular: '100',
+        fontFamily: 'Montserrat',
+        // fontWeightRegular: '900',
     },
     // overrides: {
     //     MuiCssBaseline: {
@@ -39,7 +39,7 @@ const theme = createMuiTheme({
             xs: 0,
             sm: 600,
             md: 960,
-            lg: 1280,
+            lg: 1400,
             xl: 1700,
         },
     },

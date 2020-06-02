@@ -61,7 +61,11 @@ const IgRoll = ({ data }) => {
             <PreviewCompatibleImage
               imageInfo={{
                 image: tile.node.localFile,
-                style: { width: 250, height: 250, marginLeft: 'auto', marginRight: 'auto' }
+                style: {
+                  width: 180,
+                  height: 180,
+                  marginLeft: 'auto', marginRight: 'auto'
+                }
               }} /></a>
         </Grid>
       ))}

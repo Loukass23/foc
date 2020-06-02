@@ -44,7 +44,7 @@ export const FollowPageTemplate = ({
             <div className={classes.toolbar} />
             <GridList cellHeight={500} className={classes.gridList} cols={3}>
                 {igNodes.map((tile) => (
-                    <GridListTile key={tile.id} cols={1}>
+                    <GridListTile key={tile.node.id} cols={1}>
                         <PreviewCompatibleImage
                             imageInfo={{
                                 image: tile.node.localFile,
